@@ -1,0 +1,16 @@
+.navbar {
+    float: left;
+    width: 100%;
+    border-bottom: #ccc;
+}
+
+.container-logo {
+    width: 150px;
+}
+.container-logo img {
+    width: 100%;
+}
+
+.boton {
+    color: white;
+}
