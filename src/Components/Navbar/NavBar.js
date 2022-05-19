@@ -2,6 +2,7 @@ import './NavBar.css'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import CartWidget from '../CartWidget';
 
 const NavBar = () => {
 
@@ -25,8 +26,8 @@ const NavBar = () => {
                         <Button sx={{ color: 'white' }}>Nosotros</Button>
                     </li>
                 </ul>
-                <Button color="inherit">Login</Button>
             </Toolbar>
+            <CartWidget />
         </AppBar>
     )
 }
