@@ -1,0 +1,7 @@
+.count-item {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-top: 1px solid #ccc;
+    border-bottom: 10px;
+}

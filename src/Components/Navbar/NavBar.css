@@ -2,15 +2,23 @@
     float: left;
     width: 100%;
     border-bottom: #ccc;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
 }
 
 .container-logo {
     width: 150px;
 }
+
 .container-logo img {
     width: 100%;
 }
 
 .boton {
     color: white;
+}
+
+.header-primary {
+    background-color: blueviolet !important;
 }
