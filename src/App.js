@@ -1,22 +1,28 @@
 import './App.css';
 import NavBar from './Components/Navbar/NavBar';
 import ItemListContainer from './Components/ItemListContainer';
-import CardList from './Components/CardList/CardList';
 import Modal from './Components/Modal/Modal'
 import { useState } from 'react';
+import CardListContainer from './Components/CardListContainer/CardListContainer'
 
 function App() {
   const [open, setOpen] = useState(false)
+  const [tipoProducto, setTipoProducto] = useState("Tortas")
   const handleClose = () => {
     setOpen(false)
+  }
+
+  const onTypeChange = (type) => {
+    setTipoProducto(type);
   }
 
   return (
     <div className="App">
       <NavBar />
+      <button onClick={() => { onTypeChange("Tortas") }}>Tortas</button>
+      <button onClick={() => { onTypeChange("Alfajores") }}>Alfajores</button>
       <div className='general-container'>
-        <CardList title={'Tortas'} />
-        <CardList title={'Alfajores'} />
+        <CardListContainer type={tipoProducto} />
         <h1>La Pasteleria</h1>
         <ItemListContainer greeting={'211223344'} />
       </div>
