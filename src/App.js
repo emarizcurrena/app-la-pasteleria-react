@@ -1,9 +1,9 @@
 import './App.css';
 import NavBar from './Components/Navbar/NavBar';
-import ItemListContainer from './Components/ItemListContainer';
 import Modal from './Components/Modal/Modal'
 import { useState } from 'react';
 import CardListContainer from './Components/CardListContainer/CardListContainer'
+import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   const [open, setOpen] = useState(false)
@@ -16,10 +16,27 @@ function App() {
     setTipoProducto(type);
   }
 
+  // useEffect(() => {
+  //   fetch('https://jsonplaceholder.typicode.com/users', {
+  //     headers: {
+  //       'Access-Control-Allow-Origin': '*',
+  //       token,
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((res) => {
+  //       console.log('Respuesta: ', res)
+  //     })
+  // }, [])
+
   return (
     <div className="App">
       <NavBar />
-      <button onClick={() => { onTypeChange("Tortas") }}>Tortas</button>
+      <ItemDetailContainer />
+      {/* <button onClick={() => { onTypeChange("Tortas") }}>Tortas</button>
       <button onClick={() => { onTypeChange("Alfajores") }}>Alfajores</button>
       <div className='general-container'>
         <CardListContainer type={tipoProducto} />
@@ -34,7 +51,7 @@ function App() {
           <input type={'text'} placeholder={'apellido'} />
           <button>Enviar</button>
         </form>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }

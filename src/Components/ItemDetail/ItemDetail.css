@@ -1,0 +1,17 @@
+.detail {
+    max-width: fit-content;
+    background-color: lightpink;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+div img {
+    max-width: 300px;
+}
+
+.detailText {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}

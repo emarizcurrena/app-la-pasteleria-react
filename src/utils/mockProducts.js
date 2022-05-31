@@ -67,3 +67,13 @@ export const alfajores = [
         id: 14,
     },
 ]
+
+export const producto1 =
+{
+    title: "Torta Chocolate",
+    price: 1500,
+    image: "torta_choco.jpg",
+    description: '',
+    stock: 20,
+    id: 1,
+}
