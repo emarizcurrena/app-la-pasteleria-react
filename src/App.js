@@ -1,58 +1,51 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './Components/Navbar/NavBar';
 import Modal from './Components/Modal/Modal'
-import { useState } from 'react';
-import CardListContainer from './Components/CardListContainer/CardListContainer'
-import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
+import { useState, useEffect, token } from 'react';
+import ItemListContainer from './Components/ItemListContainer'
+import Home from './pages/Home';
+import Products from './pages/Productos';
+import NotFound from './pages/NotFound';
+import Detalle from './pages/Detalle';
+import ProductList from './pages/ProductList';
 
 function App() {
   const [open, setOpen] = useState(false)
-  const [tipoProducto, setTipoProducto] = useState("Tortas")
   const handleClose = () => {
     setOpen(false)
   }
 
-  const onTypeChange = (type) => {
-    setTipoProducto(type);
-  }
-
-  // useEffect(() => {
-  //   fetch('https://jsonplaceholder.typicode.com/users', {
-  //     headers: {
-  //       'Access-Control-Allow-Origin': '*',
-  //       token,
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((res) => {
-  //       console.log('Respuesta: ', res)
-  //     })
-  // }, [])
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users', {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        token,
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((res) => {
+        console.log('Respuesta: ', res)
+      })
+  }, [])
 
   return (
-    <div className="App">
-      <NavBar />
-      <ItemDetailContainer />
-      {/* <button onClick={() => { onTypeChange("Tortas") }}>Tortas</button>
-      <button onClick={() => { onTypeChange("Alfajores") }}>Alfajores</button>
-      <div className='general-container'>
-        <CardListContainer type={tipoProducto} />
-        <h1>La Pasteleria</h1>
-        <ItemListContainer greeting={'211223344'} />
+    <BrowserRouter>
+      <div className="App">
+        <NavBar />
+        <Routes>
+          <Route path='/contact' element={<h1>CONTACTO</h1>} />
+          <Route path='/products/:category' element={<ProductList />} />
+          <Route path='/product/:id' element={<Detalle />} />
+          <Route path='/' element={<Home />} />
+          {/* <Route path='/products' element={<Products />} /> */}
+          <Route path='*' element={<NotFound />} />
+        </Routes>
       </div>
-      <button onClick={() => setOpen(true)}>Abrir modal</button>
-      <Modal handleClose={handleClose} open={open}>
-        <h2>Contacto</h2>
-        <form>
-          <input type={'text'} placeholder={'nombre'} />
-          <input type={'text'} placeholder={'apellido'} />
-          <button>Enviar</button>
-        </form>
-      </Modal> */}
-    </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# La Pasteleria
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Es una app para un negocio tipo confiteria que vende tortas y alfajores entre otros productos.
+
 
 ## Available Scripts
 
@@ -68,3 +69,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+

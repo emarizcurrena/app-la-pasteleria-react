@@ -2,20 +2,22 @@ import { useState, useEffect } from 'react';
 import LinearProgress from '@mui/material/LinearProgress';
 
 import CardList from '../CardList/CardList';
-import { tortas, alfajores } from '../../utils/mockProducts';
+import { products as mockProducts } from '../../utils/mockProducts';
+import { useParams } from 'react-router-dom';
 
-const CardListContainer = ({ type }) => {
-    const [products, setProducts] = useState([])
+const CardListContainer = () => {
+    const [productCategory, setproductCategory] = useState({})
     const [loader, setLoader] = useState(true)
+    let { category } = useParams();
 
     const getProducts = () => {
         setLoader(true)
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                if (type === "Tortas") {
-                    resolve(tortas)
+                if (category === "tortas") {
+                    resolve(mockProducts.tortas)
                 } else {
-                    resolve(alfajores)
+                    resolve(mockProducts.alfajores)
                 }
 
             }, 2000)
@@ -26,7 +28,7 @@ const CardListContainer = ({ type }) => {
         getProducts()
             .then((response) => {
                 console.log("Then : Respuesta promes: ", response)
-                setProducts(response)
+                setproductCategory(response)
             })
             .catch((err) => {
                 console.log("Catch : Fallo la llamada.")
@@ -35,11 +37,11 @@ const CardListContainer = ({ type }) => {
                 console.log("Finally: Termino la promesa")
                 setLoader(false)
             })
-    }, [type])
-    console.log(products)
+    }, [category])
+
     return (
         loader ? <LinearProgress color="secondary" />
-            : <CardList products={products} title={type} />
+            : <CardList productCategory={productCategory} />
     )
 
 }

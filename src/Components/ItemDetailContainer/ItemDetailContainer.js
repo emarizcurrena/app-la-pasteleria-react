@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
-import { producto1 } from '../../utils/mockProducts'
+import { products } from '../../utils/mockProducts'
 import './ItemDetailContainer.css';
+import { useParams } from "react-router-dom"
 
 const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState({})
+    const { id } = useParams();
     const getItem = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(producto1)
+                const productList = [...products.alfajores.items, ...products.tortas.items]
+                const prrf = productList.find(item => parseInt(id) === item.id);
+                console.log(prrf)
+                resolve(prrf)
             }, 2000)
         })
     }
