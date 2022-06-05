@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
-import { products } from '../../utils/mockProducts'
+import { productos } from '../../utils/productsMock'
 import './ItemDetailContainer.css';
 import { useParams } from "react-router-dom"
 
@@ -11,10 +11,7 @@ const ItemDetailContainer = () => {
     const getItem = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                const productList = [...products.alfajores.items, ...products.tortas.items]
-                const prrf = productList.find(item => parseInt(id) === item.id);
-                console.log(prrf)
-                resolve(prrf)
+                resolve(productos.find(item => parseInt(id) === item.id))
             }, 2000)
         })
     }

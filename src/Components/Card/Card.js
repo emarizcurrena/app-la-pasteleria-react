@@ -31,7 +31,6 @@ const CardItem = ({ image, title, price, stock, id }) => {
                     </div>
                     <p>{title}</p>
                     <span>$ {price}</span>
-                    <ItemCount stock={stock} />
                     {/* <Button variant={'outlined'} onClick={() => setOpen(true)}>Detalle</Button> */}
                 </div>
             </CardContent>
