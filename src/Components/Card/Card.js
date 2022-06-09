@@ -3,12 +3,15 @@ import './Card.css'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Button } from '@mui/material';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Modal from '../Modal/Modal';
 import ItemCount from '../ItemCount/ItemCount';
+import CartContext from '../../context/CartContext'
 
 //Functional Component
 const CardItem = ({ image, title, price, stock, id }) => {
+
+    const { addProductToCart } = useContext(CartContext)
 
     const [open, setOpen] = useState(false)
     const navigate = useNavigate();
@@ -33,6 +36,7 @@ const CardItem = ({ image, title, price, stock, id }) => {
                     <span>$ {price}</span>
                     {/* <Button variant={'outlined'} onClick={() => setOpen(true)}>Detalle</Button> */}
                 </div>
+                <Button variant={'contained'} className='card-item-button' onClick={() => addProductToCart({ image, title, price, stock, id })}>Agregar al carrito</Button>
             </CardContent>
             {/* {open && (
                 <Modal handleClose={handleClose} open={open}>
