@@ -34,7 +34,7 @@ const ItemCount = ({ setShowButton, product }) => {
             <Button
                 variant='outlined'
                 onClick={() => {
-                    setShowButton(true);
+                    setShowButton && setShowButton(true);
                     addProductToCart(product, cantidad)
                 }}>Comprar</Button>
         </>

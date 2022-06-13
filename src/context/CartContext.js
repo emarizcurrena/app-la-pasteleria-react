@@ -4,11 +4,13 @@ const CartContext = createContext()
 
 const CartProvider = ({ children }) => {
     const [cartListItems, setCartListItems] = useState([])
+    const [totalPrice, setTotalPrice] = useState(0)
 
     const addProductToCart = (product, qty) => {
         let isInCart = cartListItems.find(cartItem => cartItem.id === product.id)
         if (!isInCart) {
             console.log("se agrego el producto: ", product)
+            setTotalPrice(totalPrice + product.price)
             setCartListItems(cartListItems => [...cartListItems, { ...product, qty }])
         }
         console.log("El producto ya se encuentra en el carrito")
@@ -30,7 +32,8 @@ const CartProvider = ({ children }) => {
     const data = {
         cartListItems,
         addProductToCart,
-        removeProductToCart
+        removeProductToCart,
+        totalPrice
     }
 
 

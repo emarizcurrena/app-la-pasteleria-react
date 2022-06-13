@@ -46,7 +46,7 @@ const NavBar = () => {
                             onClick={handleClick}
                             sx={{ color: 'white' }} disableRipple style={{ backgroundColor: 'transparent' }} variant='text' className='navbar_btn'
                         >
-                            Productos
+                            <Link to='/products'>Productos</Link>
                         </Button>
                         <Menu
                             id="basic-menu"
@@ -66,11 +66,13 @@ const NavBar = () => {
                         </Menu>
                     </li>
                     <li>
-                        <Button sx={{ color: 'white' }}>Eventos</Button>
+                        <Button sx={{ color: 'white' }} disableRipple style={{ backgroundColor: 'transparent' }} variant='text' className='navbar_btn' >
+                            <Link to='/Eventos'>Eventos</Link>
+                        </Button>
                     </li>
                     <li>
-                        <Button sx={{ color: 'white' }}>
-                            <Link to='/contact'>Nosotros</Link>
+                        <Button sx={{ color: 'white' }} disableRipple style={{ backgroundColor: 'transparent' }} variant='text' className='navbar_btn' >
+                            <Link to='/Nosotros'>Nosotros</Link>
                         </Button>
                     </li>
                 </ul>

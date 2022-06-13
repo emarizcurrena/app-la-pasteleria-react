@@ -1,0 +1,26 @@
+.item-cart-prod {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-prod__image img {
+    width: 100px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.cart-prod__info {
+    margin: 0 20px;
+    width: 50%;
+}
+
+.cart-prod__info>div {
+    justify-content: center;
+}
+
+.cart-prod__action>button {
+    justify-content: center;
+    align-items: left;
+    margin-right: 10px;
+}

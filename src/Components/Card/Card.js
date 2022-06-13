@@ -9,7 +9,9 @@ import ItemCount from '../ItemCount/ItemCount';
 import CartContext from '../../context/CartContext'
 
 //Functional Component
-const CardItem = ({ image, title, price, stock, id }) => {
+const CardItem = (product) => {
+
+    const { image, title, price, stock, id } = product;
 
     const { addProductToCart } = useContext(CartContext)
 
@@ -36,7 +38,8 @@ const CardItem = ({ image, title, price, stock, id }) => {
                     <span>$ {price}</span>
                     {/* <Button variant={'outlined'} onClick={() => setOpen(true)}>Detalle</Button> */}
                 </div>
-                <Button variant={'contained'} className='card-item-button' onClick={() => addProductToCart({ image, title, price, stock, id })}>Agregar al carrito</Button>
+                <ItemCount product={product} />
+                {/* <Button variant={'contained'} className='card-item-button' onClick={() => addProductToCart({ image, title, price, stock, id })}>Agregar al carrito</Button> */}
             </CardContent>
             {/* {open && (
                 <Modal handleClose={handleClose} open={open}>

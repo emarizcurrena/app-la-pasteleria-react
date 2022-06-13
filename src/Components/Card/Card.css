@@ -5,6 +5,7 @@
 .card-item {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .card-item p {
@@ -17,4 +18,8 @@
 .card-item span {
     margin-bottom: 10px;
     font-size: 16px;
+}
+
+.card-item-container {
+    margin-top: 20px;
 }

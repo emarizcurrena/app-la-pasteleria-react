@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
 .navbar {
     float: left;
     width: 100%;
@@ -9,6 +11,7 @@
 
 .container-logo {
     width: 150px;
+    margin-top: 5px;
 }
 
 .container-logo img {
@@ -21,4 +24,13 @@
 
 .header-primary {
     background-color: blueviolet !important;
+}
+
+.header-primary .navbar .navbar_btn a {
+    font-family: 'Mochiy Pop One', sans-serif;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
 }

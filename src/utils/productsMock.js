@@ -36,7 +36,7 @@ export const productos = [
         id: 4,
     },
     {
-        title: "Chocolate",
+        title: "Alfajor Chocolate",
         price: 120,
         image: "choco.jpg",
         description: '',
@@ -45,7 +45,7 @@ export const productos = [
         id: 11,
     },
     {
-        title: "Vainilla",
+        title: "Alfajor Vainilla",
         price: 120,
         image: "vainilla.jpg",
         description: '',
@@ -54,7 +54,7 @@ export const productos = [
         id: 12,
     },
     {
-        title: "Membrillo",
+        title: "Alfajor Membrillo",
         price: 100,
         image: "membrillo.jpg",
         description: '',
@@ -63,7 +63,7 @@ export const productos = [
         id: 13,
     },
     {
-        title: "Frutilla",
+        title: "Alfajor Frutilla",
         price: 130,
         image: "frutilla.jpg",
         description: '',

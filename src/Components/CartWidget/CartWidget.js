@@ -1,9 +1,12 @@
+import './CartWidget.css'
 import { useState, useContext } from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import DeleteIcon from '@mui/icons-material/Delete'
 import CartContext from '../../context/CartContext';
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom'
 
 const CartWidget = () => {
     const { cartListItems, removeProductToCart } = useContext(CartContext)
@@ -21,12 +24,13 @@ const CartWidget = () => {
     return (
         <div className='cart-container-icon'>
             <ShoppingCartIcon
-                color={'primary'}
+                color={'white'}
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
             />
+            {cartListItems.reduce((prevValue, nextItem) => { return prevValue + nextItem.qty }, 0)}
             <Menu
                 id="basic-menu"
                 anchorEl={anchorEl}
@@ -39,6 +43,7 @@ const CartWidget = () => {
                 <div className='container-item-list-cart'>
                     {hasItems ?
                         <>
+                            <h3>Carrito:</h3>
                             {cartListItems.map((item) => {
                                 return (
                                     <div className='item-cart-prod' key={item.id}>
@@ -58,6 +63,7 @@ const CartWidget = () => {
                                 )
                             })}
                             <button onClick={removeProductToCart}>Clear All</button>
+                            <Button variant='outlined'><Link to='/cart'>Termina mi compra</Link></Button>
                         </>
                         :
                         <p>No hay productos agregados al carrito</p>
