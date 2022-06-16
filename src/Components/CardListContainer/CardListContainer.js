@@ -2,23 +2,16 @@ import { useState, useEffect } from 'react';
 import LinearProgress from '@mui/material/LinearProgress';
 
 import CardList from '../CardList/CardList';
-import { productos } from '../../utils/productsMock';
 import { useParams } from 'react-router-dom';
+//Firestore
+import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
+import db from '../../utils/fireBaseConfig'
+
 
 const CardListContainer = () => {
     const [products, setProducts] = useState([])
     const [loader, setLoader] = useState(true)
     const { category } = useParams();
-    console.log(products)
-
-    const getProducts = () => {
-        // setLoader(true)
-        return new Promise((resolve, reject) => {
-            // setTimeout(() => {
-            resolve(productos)
-            // }, 2000)
-        })
-    }
 
     const filterByCategory = (array, categoryName) => {
         // categoryName es false si es undefined y es true si tenemos alguna categoria en la URL
@@ -32,21 +25,26 @@ const CardListContainer = () => {
     }
 
     useEffect(() => {
-        getProducts()
-            .then((response) => {
-                console.log("Then : Respuesta promes: ", response)
-                const filteredProducts = filterByCategory(response, category)
-                console.log(filteredProducts)
-                setProducts(filteredProducts)
-            })
-            .catch((err) => {
-                console.log("Catch : Fallo la llamada.")
-            })
-            .finally(() => {
-                console.log("Finally: Termino la promesa")
-                setLoader(false)
-            })
+        getProductsList().then((productos) => {
+            const filteredProducts = filterByCategory(productos, category)
+            setProducts(filteredProducts)
+        })
     }, [category])
+
+    const getProductsList = async () => {
+        const productsRef = collection(db, "Productos")
+        const productSnapshot = category ?
+            await getDocs(query(productsRef, where("category", "==", category)))
+            : await getDocs(query(productsRef, orderBy("category", "desc")));
+
+        const productList = productSnapshot.docs.map((doc) => {
+            let product = doc.data()
+            product.id = doc.id
+            return product
+        })
+        return productList
+    }
+
 
     return (
         // loader ? <LinearProgress color="secondary" />

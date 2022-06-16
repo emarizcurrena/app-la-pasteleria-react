@@ -1,27 +1,32 @@
 import { useEffect, useState } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
-import { productos } from '../../utils/productsMock'
 import './ItemDetailContainer.css';
 import { useParams } from "react-router-dom"
+import { doc, getDoc } from "firebase/firestore";
+import db from '../../utils/fireBaseConfig'
+import { useNavigate } from "react-router-dom";
 
 const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState({})
     const { id } = useParams();
-    const getItem = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(productos.find(item => parseInt(id) === item.id))
-            }, 2000)
-        })
+    const navigate = useNavigate();
+
+    const getItem = async () => {
+        const docRef = doc(db, "Productos", `${id}`);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            console.log("Document data:", docSnap);
+            setProduct(docSnap.data())
+        } else {
+            console.log("No such document!");
+            navigate("/products")
+        }
     }
+
 
     useEffect(() => {
         getItem()
-            .then((res) => {
-                console.log("Respuesta GetItem: ", res)
-                setProduct(res)
-            })
     }, [])
 
     return (
