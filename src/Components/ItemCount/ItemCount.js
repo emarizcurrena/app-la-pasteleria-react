@@ -34,6 +34,7 @@ const ItemCount = ({ setShowButton, product }) => {
             <Button
                 variant='outlined'
                 onClick={() => {
+                    console.log("estoy clickeando")
                     setShowButton && setShowButton(true);
                     addProductToCart(product, cantidad)
                 }}>Comprar</Button>

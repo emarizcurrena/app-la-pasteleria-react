@@ -4,7 +4,6 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Button } from '@mui/material';
 import { useContext, useState } from 'react';
-import Modal from '../Modal/Modal';
 import ItemCount from '../ItemCount/ItemCount';
 import CartContext from '../../context/CartContext'
 
@@ -41,12 +40,6 @@ const CardItem = (product) => {
                 <ItemCount product={product} />
                 {/* <Button variant={'contained'} className='card-item-button' onClick={() => addProductToCart({ image, title, price, stock, id })}>Agregar al carrito</Button> */}
             </CardContent>
-            {/* {open && (
-                <Modal handleClose={handleClose} open={open}>
-                    <h2>Detalle</h2>
-                    <img src={`./${image}`} alt={"producto"} />
-                </Modal>
-            )} */}
         </Card>
     )
 }

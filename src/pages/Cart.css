@@ -30,7 +30,7 @@
     justify-content: space-between;
 }
 
-.cart-checkout-details button {
+.cart-checkout-btn {
     background: black;
     border-radius: 40px;
     text-transform: none;
@@ -46,4 +46,13 @@
 
 .cart-table__content-img img {
     width: 100%;
+}
+
+.form-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-contact>div {
+    margin-bottom: 10px;
 }

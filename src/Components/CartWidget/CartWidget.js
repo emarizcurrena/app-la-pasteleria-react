@@ -43,7 +43,7 @@ const CartWidget = () => {
                 <div className='container-item-list-cart'>
                     {hasItems ?
                         <>
-                            <h3>Carrito:</h3>
+                            <h3 className='titulo-carrito'>Carrito:</h3>
                             {cartListItems.map((item) => {
                                 return (
                                     <div className='item-cart-prod' key={item.id}>
@@ -53,6 +53,8 @@ const CartWidget = () => {
                                         <div className='cart-prod__info'>
                                             <p>{item.title}</p>
                                             <span>$ {item.price}</span>
+                                            <p>cantidad: {item.qty}</p>
+                                            <p>Subtotal: ${item.price * item.qty}</p>
                                         </div>
                                         <div className='cart-prod__action'>
                                             <button onClick={() => removeProductToCart(item.id)}>
@@ -62,7 +64,9 @@ const CartWidget = () => {
                                     </div>
                                 )
                             })}
-                            <button onClick={removeProductToCart}>Clear All</button>
+                            <p className='cart-prod__total'>
+                                {cartListItems.reduce((prevValue, nextItem) => { return prevValue + nextItem.qty }, 0)} Items en el carro
+                            </p>
                             <Button variant='outlined'><Link to='/cart'>Termina mi compra</Link></Button>
                         </>
                         :

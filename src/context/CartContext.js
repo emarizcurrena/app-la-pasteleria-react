@@ -7,17 +7,27 @@ const CartProvider = ({ children }) => {
     const [totalPrice, setTotalPrice] = useState(0)
 
     const addProductToCart = (product, qty) => {
-        let isInCart = cartListItems.find(cartItem => cartItem.id === product.id)
-        if (!isInCart) {
+        console.log()
+        let productIndex = cartListItems.findIndex(item => item.id === product.id);
+        if (productIndex === -1) {
             console.log("se agrego el producto: ", product)
             setTotalPrice(totalPrice + product.price)
             setCartListItems(cartListItems => [...cartListItems, { ...product, qty }])
+        } else {
+            const temporalArray = [...cartListItems];
+            temporalArray[productIndex].qty += qty;
+            setCartListItems(temporalArray)
         }
-        console.log("El producto ya se encuentra en el carrito")
+
+    }
+
+    const cleanCartProducts = () => {
+        setCartListItems([])
     }
 
     const removeProductToCart = (id) => {
-        if (typeof id === "number") {
+        console.log(typeof id)
+        if (typeof parseInt(id) === "number") {
             setCartListItems(
                 cartListItems.filter((item) => {
                     return !(item.id === id);
@@ -33,7 +43,8 @@ const CartProvider = ({ children }) => {
         cartListItems,
         addProductToCart,
         removeProductToCart,
-        totalPrice
+        totalPrice,
+        cleanCartProducts
     }
 
 

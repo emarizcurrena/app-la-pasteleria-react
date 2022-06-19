@@ -3,32 +3,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 
-const Modal = ({ handleClose, open, children }) => {
-    const [count, setCount] = useState(0)
-
-    // useEffect(() => {
-    //     console.log("Fase Update/Actualizacion")
-    // })
-
-    // useEffect(() => {
-    //    console.log("Fase Montaje")
-    // }, [])
-
-    // useEffect(() => {
-    //    return () => {
-    //        console.log("Fase Desmontaje/Unmount")
-    //    }
-    // }, [])
-
-    // useEffect(() => {
-    //    console.log("Fase Montaje")
-    // }, [count])
+const Modal = ({ handleClose, open, children, title }) => {
+    // const [count, setCount] = useState(0)
 
     return (
         <Dialog onClose={handleClose} open={open}>
             <DialogContent>
-                <p>{count}</p>
-                <button onClick={() => setCount(count + 1)}>+</button>
+                <DialogTitle>{title}</DialogTitle>
                 {children}
             </DialogContent>
         </Dialog>
