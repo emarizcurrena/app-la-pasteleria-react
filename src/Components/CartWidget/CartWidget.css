@@ -52,3 +52,18 @@
     margin-top: 5px;
 
 }
+
+.checkout {
+    display: flex;
+    justify-content: center;
+}
+
+.checkout-btn {
+    background: black;
+    border-radius: 40px;
+    text-transform: none;
+    color: white;
+    font-size: 14px;
+    padding: 10px 20px;
+    margin-top: 0;
+}

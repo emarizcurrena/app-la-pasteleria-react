@@ -13,6 +13,7 @@ import { CartProvider } from './context/CartContext'
 import Cart from './pages/Cart'
 import Eventos from './pages/Eventos'
 import Nosotros from './pages/Nosotros'
+import Footer from './Components/Footer/Footer'
 
 function App() {
   const [open, setOpen] = useState(false)
@@ -41,18 +42,22 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <NavBar />
-          <Routes>
-            <Route path='/contact' element={<h1>CONTACTO</h1>} />
-            <Route path='/cart' element={<Cart />} />
-            <Route path='/products' element={<ProductList />} />
-            <Route path='/products/:category' element={<ProductList />} />
-            <Route path='/product/:id' element={<Detalle />} />
-            <Route path='/' element={<Home />} />
-            {/* <Route path='/products' element={<Products />} /> */}
-            <Route path='*' element={<NotFound />} />
-            <Route path='/Nosotros' element={<Nosotros />} />
-            <Route path='/Eventos' element={<Eventos />} />
-          </Routes>
+          <div style={{ marginBottom: "80px" }}>
+            <Routes>
+              <Route path='/contact' element={<h1>CONTACTO</h1>} />
+              <Route path='/cart' element={<Cart />} />
+              <Route path='/products' element={<ProductList />} />
+              <Route path='/products/:category' element={<ProductList />} />
+              <Route path='/product/:id' element={<Detalle />} />
+              <Route path='/' element={<Home />} />
+              {/* <Route path='/products' element={<Products />} /> */}
+              <Route path='*' element={<NotFound />} />
+              <Route path='/Nosotros' element={<Nosotros />} />
+              <Route path='/Eventos' element={<Eventos />} />
+            </Routes>
+          </div>
+
+          <Footer />
         </div>
       </BrowserRouter>
     </CartProvider>

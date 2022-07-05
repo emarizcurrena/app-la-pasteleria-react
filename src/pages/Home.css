@@ -1,0 +1,22 @@
+.mySwiper {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    background-image: url(https://image.freepik.com/free-vector/pastries-desserts-collection-set-hand-drawn-style_34259-414.jpg);
+    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.5);
+    background-size: contain;
+}
+
+.imageSize img {
+    padding: 30px 0;
+    max-width: 35%;
+}
+
+.info {
+    padding: 3% 10% 0;
+    font-size: large;
+}
+
+.parrafoDos {
+    margin-top: 30px;
+}

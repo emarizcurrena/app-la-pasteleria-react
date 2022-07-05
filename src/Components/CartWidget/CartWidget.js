@@ -67,7 +67,9 @@ const CartWidget = () => {
                             <p className='cart-prod__total'>
                                 {cartListItems.reduce((prevValue, nextItem) => { return prevValue + nextItem.qty }, 0)} Items en el carro
                             </p>
-                            <Button variant='outlined'><Link to='/cart'>Termina mi compra</Link></Button>
+                            <div className='checkout'>
+                                <button className='checkout-btn'><Link to='/cart'>Termina mi compra</Link></button>
+                            </div>
                         </>
                         :
                         <p>No hay productos agregados al carrito</p>
